@@ -6,10 +6,6 @@
   gap: 12px;
   padding: 50px 24px 16px;
   min-height: 100vh;
-
-  @media (--s-viewport) {
-    padding: 50px 8px 16px;
-  }
 }
 
 .container {
@@ -29,10 +25,6 @@
 .sidebar {
   min-width: 300px;
   display: flex;
-
-  @media (--m-viewport) {
-    display: none;
-  }
 }
 
 .footer {

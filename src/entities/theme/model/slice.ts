@@ -1,26 +1,28 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type Theme } from './types'
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { type Theme } from "./types";
+import { RootState } from "@/app/store";
 
 type ThemeSliceState = {
-  currentTheme: Theme
-}
+  currentTheme: Theme;
+};
 
 const initialState: ThemeSliceState = {
-  currentTheme: window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light',
-}
+  currentTheme: window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light",
+};
 
 export const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     changeTheme: (state, action: PayloadAction<Theme>) => {
-      state.currentTheme = action.payload
+      state.currentTheme = action.payload;
     },
   },
-})
+});
 
-export const selectCurrentTheme = (state: RootState) => state.theme.currentTheme
+export const selectCurrentTheme = (state: RootState) =>
+  state.theme.currentTheme;
 
-export const { changeTheme } = themeSlice.actions
+export const { changeTheme } = themeSlice.actions;

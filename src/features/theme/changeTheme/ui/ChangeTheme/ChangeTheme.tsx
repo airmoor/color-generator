@@ -1,28 +1,30 @@
-import React, { useCallback } from 'react'
-import { changeTheme, selectCurrentTheme } from '@/entities/theme'
-import { useFeatureSlicedDebug } from '@/shared/lib'
-import { useAppDispatch, useAppSelector } from '@/shared/model'
-import { Icon } from '@/shared/ui'
+import React, { useCallback } from "react";
+import { changeTheme, selectCurrentTheme } from "@/entities/theme";
+import { useAppDispatch, useAppSelector } from "@/shared/model";
+import { PiSunThin } from "react-icons/pi";
+import { PiMoonStarsThin } from "react-icons/pi";
 
 export function ChangeTheme() {
-  const { rootAttributes } = useFeatureSlicedDebug('feature/ChangeTheme')
-  const currentTheme = useAppSelector(selectCurrentTheme)
-  const dispatch = useAppDispatch()
+  const currentTheme = useAppSelector(selectCurrentTheme);
+  const dispatch = useAppDispatch();
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
-      e.stopPropagation()
-      dispatch(changeTheme(currentTheme === 'light' ? 'dark' : 'light'))
+      e.stopPropagation();
+      dispatch(changeTheme(currentTheme === "light" ? "dark" : "light"));
     },
-    [currentTheme]
-  )
+    [currentTheme],
+  );
 
   return (
-    <div {...rootAttributes}>
-      <Icon
-        onClick={onClick}
-        type={currentTheme === 'light' ? 'moon' : 'sun'}
-      />
+    <div>
+      <div onClick={onClick}>
+        {currentTheme === "light" ? (
+          <PiMoonStarsThin size={30} />
+        ) : (
+          <PiSunThin size={30} />
+        )}
+      </div>
     </div>
-  )
+  );
 }

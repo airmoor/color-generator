@@ -9,7 +9,13 @@
   /* Global colors */
   --color-white: #fff;
   --color-dark: #212a2e;
-  --color-blue-iris: #543fd7;;
+  --color-blue-iris: #543fd7;
+
+  --brand: rgb(0 0 255);
+  --brand-light: color-mix(in srgb, var(--brand), white);
+  --brand-lighter: color-mix(in srgb, var(--brand), white 75%);
+  --brand-dark: color-mix(in srgb, var(--brand), black);
+  --brand-darker: color-mix(in srgb, var(--brand), black 75%);
 }
 
 html[data-theme="light"] {
@@ -20,7 +26,7 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --text-color: #F7F8F8;
+  --text-color: #f7f8f8;
   --link-color: #828fff;
   --background-color: #212a2e;
   --alternate-background-color: #1a2327;
